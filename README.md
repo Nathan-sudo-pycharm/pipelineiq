@@ -5,7 +5,7 @@ Real-time data ingestion and processing pipeline with streaming analytics.
 ## Run it
 
 ```bash
-git clone <your-repo-url>
+git clone [PipelineIQ](https://github.com/Nathan-sudo-pycharm/pipelineiq.git)
 cd pipelineiq
 docker compose up --build
 ```
