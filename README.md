@@ -46,4 +46,4 @@ FastAPI · Redis Streams · PostgreSQL · Docker Compose
 
 ---
 
-For architecture and design details see [docs/architecture.md](docs/architecture.md)
+For architecture and design details see [Architecture](docs/ARCHITECTURE.md)
