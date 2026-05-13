@@ -24,6 +24,28 @@ services:
       - redis_data:/data
     command: redis-server --appendonly yes
 
+  app:
+    build: .
+    container_name: pipelineiq_app
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "8080:8000"
+    depends_on:
+      - postgres
+      - redis
+
+  worker:
+    build: .
+    container_name: pipelineiq_worker
+    restart: unless-stopped
+    env_file: .env
+    # Override the default CMD to run the worker instead of the API
+    command: ["python", "-m", "workers.consumer"]
+    depends_on:
+      - postgres
+      - redis
+
 volumes:
   postgres_data:
   redis_data:
