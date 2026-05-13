@@ -33,6 +33,8 @@ CREATE TABLE IF NOT EXISTS aggregates (
     max          NUMERIC,
     computed_at  TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+CREATE UNIQUE INDEX IF NOT EXISTS idx_aggregates_unique_window
+    ON aggregates(pipeline_id, window_start, metric);
 
 -- Dead-letter log
 -- Events that fail schema validation land here instead of being silently dropped
